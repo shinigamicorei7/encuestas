@@ -1,0 +1,56 @@
+{# pregunta \Intisana\Encuesta\Pregunta\Composed #}
+<script type="text/javascript">
+	function solo_numeros(e)
+	{
+		var keynum = window.event ? window.event.keyCode : e.which;
+		return /\d/.test(String.fromCharCode(keynum));
+	}
+	$(function ()
+	{
+		$('.pregunta-{{ pregunta.serial }}').on('ifChecked', function ()
+		{
+			var _self = $(this);
+			var _input_id = _self.data('input-id');
+			$('#' + _input_id).attr('required', 'required');
+		});
+		$('.pregunta-{{ pregunta.serial }}').on('ifUnchecked', function ()
+		{
+			var _self = $(this);
+			var _input_id = _self.data('input-id');
+			$('#' + _input_id).removeAttr('required');
+		});
+	});
+</script>
+<div class="panel">
+	<div class="panel-heading">
+		<h3 class="panel-title">{{ pregunta.orden }})</h3>
+	</div>
+	<div class="panel-body">
+		<table class="table table-condensed">
+			<thead>
+			<tr>
+				<th>{{ pregunta.titulo }}
+					<small style="color: black">(Puedes elegir más de una opción)</small>
+				</th>
+				<th>{{ pregunta.subPregunta }}</th>
+			</tr>
+			</thead>
+			<tbody>
+			{% for key,opcion in pregunta.datos %}
+				<tr>
+					<td>
+						<div class="checkbox">
+							<label>
+								<input class="pregunta-{{ pregunta.serial }}" type="checkbox" data-input-id="p-{{ pregunta.serial }}-{{ loop.index }}" name="preguntas[{{ pregunta.serial }}][{{ key }}][0]" value="{{ opcion[0] }}">&nbsp;&nbsp;&nbsp;{{ opcion[0] }}
+							</label>
+						</div>
+					</td>
+					<td>
+						<input type="text" {{ opcion.tipo == 'int' ? 'onKeypress = "return solo_numeros(event);" placeholder = "Solo números."' : '' }} name="preguntas[{{ pregunta.serial }}][{{ key }}][1]" id="p-{{ pregunta.serial }}-{{ loop.index }}" class="form-control">
+					</td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</div>

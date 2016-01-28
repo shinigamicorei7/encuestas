@@ -1,0 +1,24 @@
+{# pregunta \Intisana\Encuesta\Pregunta\Simple #}
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="{{ assets('css/jquery-ui.min.css') }}">
+<link rel="stylesheet" href="{{ assets('css/jquery-ui.theme.min.css') }}">
+<link rel="stylesheet" href="{{ assets('css/jquery-ui.structure.min.css') }}">
+<script>
+	$(function ()
+	{
+		var availableTags = {{ pregunta.datos|keys|json_encode|raw }};
+		$("#tags").autocomplete({
+			source: availableTags
+		});
+	});
+</script>
+<div class="panel">
+	<div class="panel-heading">
+		<h3 class="panel-title">{{ pregunta.orden }}) {{ pregunta.titulo }}</h3>
+	</div>
+	<div class="panel-body">
+		<div class="form-group">
+			<input required type="text" name="preguntas[{{ pregunta.serial }}]" id="tags" class="form-control" data-tipo="{{ pregunta.tipo }}">
+		</div>
+	</div>
+</div>

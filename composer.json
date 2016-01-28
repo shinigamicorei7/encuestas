@@ -1,0 +1,14 @@
+{
+	"autoload": {
+		"psr-4": {
+			"Intisana\\": "src/"
+		},
+		"files": [
+			"resources/helpers.php"
+		]
+	},
+	"require": {
+		"twig/twig": "~1.0",
+		"phpoffice/phpexcel": "^1.8"
+	}
+}

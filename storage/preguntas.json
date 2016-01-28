@@ -1,0 +1,259 @@
+{
+	"titulo": "ENCUESTA SOBRE EL USO DE LA TECNOLOGÍA Y LAS REDES SOCIALES",
+	"detalles": [
+		"Es una encuesta anónima, por lo que tu sinceridad es importante.",
+		"Responde a cada pregunta; léela despacio y piensa antes de contestar."
+	],
+	"preguntas": {
+		"has_one": {
+			"¿Para qué usas PRINCIPALMENTE esos artefactos en casa?": {
+				"orden": 4,
+				"opciones": [
+					"Estudio: consultas de deberes, investigaciones del colegio, interactivos, simuladores",
+					"Entretenimiento: juegos, música, videos, películas, etc.",
+					"Comunicación: con amigos, familiares",
+					"Para ingresar a las redes sociales"
+				]
+			},
+			"¿Para qué usas PRINCIPALMENTE esos dispositivos en el colegio?": {
+				"orden": 9,
+				"opciones": [
+					"Estudio: consultas de deberes, investigaciones del colegio, interactivos, simuladores",
+					"Entretenimiento: juegos, música, videos, películas, etc.",
+					"Comunicación: con amigos, familiares",
+					"Para ingresar a las redes sociales"
+				]
+			},
+			"¿Con qué frecuencia utilizas las redes sociales y las Apps?": {
+				"orden": 14,
+				"opciones": [
+					"Todos los días, más de 2 horas diarias",
+					"Todos los días, entre 1 a 2 horas diarias",
+					"Todos los días, menos de una hora diaria",
+					"Algunos días entre semana",
+					"Fines de semana",
+					"Una vez a la semana",
+					"Una vez al mes"
+				]
+			},
+			"¿Sueles colgar fotos en las redes sociales?": {
+				"orden": 16,
+				"opciones": [
+					"Subo la mayoría de fotos que puedo",
+					"Subo algunas fotos, independientemente de quién salga en ellas",
+					"Subo fotos en las que aparezco yo. Si sale más gente, primero pido su permiso antes de subirlas",
+					"Subo fotos en las que solo aparezco yo",
+					"Solo subo fotos en las que yo no aparezco",
+					"Nunca subo fotos"
+				]
+			},
+			"¿Tus amigos han colgado alguna foto tuya en las redes sociales?": {
+				"orden": 17,
+				"opciones": [
+					"Muchas veces",
+					"Algunas veces",
+					"Nunca"
+				]
+			},
+			"Cuando un amigo cuelga una foto tuya en una red social, ¿te pide primero permiso?": {
+				"orden": 18,
+				"opciones": [
+					"Sí, siempre",
+					"Depende del amigo",
+					"Nunca me han pedido permiso"
+				]
+			},
+			"¿Alguna vez has visto una foto tuya que hubieras preferido que no hubieran colgado?": {
+				"orden": 19,
+				"opciones": [
+					"Muchas veces",
+					"Algunas veces",
+					"Nunca"
+				]
+			},
+			"¿Aceptas todas las solicitudes de amistad que recibes?": {
+				"orden": 20,
+				"opciones": [
+					"Sí, siempre, aunque no sepa quién es",
+					"Acepto a amigos, y a amigos de mis amigos, aunque no los conozca en persona",
+					"Sólo acepto a amigos a los que ya conozco en persona",
+					"Alguna vez acepté la solicitud de alguien a quien no conocía en persona"
+				]
+			},
+			"¿Alguna vez te has sentido insultado o humillado en las redes sociales?": {
+				"orden": 21,
+				"opciones": [
+					"Sí, muchas veces",
+					"Sí, pocas veces",
+					"Casi nunca",
+					"Nunca"
+				]
+			},
+			"¿Alguna vez has visto que insultan, dañan o humillan a alguien en la red social? ": {
+				"orden": 22,
+				"opciones": [
+					"Sí, muchas veces",
+					"Sí, pocas veces",
+					"Casi nunca",
+					"Nunca"
+				]
+			},
+			"¿Crees que se pueden correr peligros con las redes sociales?": {
+				"orden": 23,
+				"opciones": [
+					"No se corre ningún peligro",
+					"Sí se corre algunos peligros",
+					"No estoy seguro"
+				]
+			}
+		},
+		"has_many": {
+			"¿Cuáles de los siguientes artefactos posees en casa?": {
+				"orden": 1,
+				"opciones": [
+					"PC de escritorio",
+					"Notebook",
+					"Netbook",
+					"Ipad",
+					"Tablet",
+					"Iphone",
+					"Celular sencillo",
+					"Celular inteligente",
+					"Reloj inteligente",
+					"Consola de video juegos con acceso a internet",
+					"Reproductor de video con acceso a internet"
+				]
+			},
+			"¿Qué usos das a esos artefactos en casa?": {
+				"orden": 3,
+				"opciones": [
+					"Estudio: consultas de deberes, investigaciones del colegio, interactivos, simuladores",
+					"Entretenimiento: juegos, música, videos, películas, etc.",
+					"Comunicación: con amigos, familiares",
+					"Para ingresar a las redes sociales"
+				]
+			},
+			"¿Cómo te controlan?": {
+				"orden": 6,
+				"opciones": [
+					"Con horarios programados de manera automática",
+					"Filtros instalados en el sistema",
+					"Conocen tus nombres de usuario y contraseñas",
+					"Te acompañan en las actividades de internet"
+				]
+			},
+			"¿Cuáles de los siguientes dispositivos llevas al colegio?": {
+				"orden": 7,
+				"opciones": [
+					"Netbook",
+					"Ipad",
+					"Tablet",
+					"Iphone",
+					"Celular sencillo",
+					"Celular inteligente",
+					"Reloj inteligente"
+				]
+			},
+			"¿Para qué utilizas las redes sociales?": {
+				"orden": 15,
+				"opciones": [
+					"Para estar en contacto frecuente con mis familiares (papá, mamá, hermanos)",
+					"Para estar en contacto con mis amigos",
+					"Para conocer gente nueva",
+					"Para contactar con amigos a los que hace tiempo que no veo",
+					"Para conquistar chicas",
+					"Para hacer bromas a otras personas"
+				]
+			}
+		},
+		"yes_or_not": {
+			"Tienes acceso a internet en tu casa": {
+				"orden": 2
+			},
+			"¿Los adultos de tu casa controlan tu acceso a internet?": {
+				"orden": 5
+			},
+			"Tienes acceso a internet con paquete de datos": {
+				"orden": 8
+			},
+			"¿Los profesores te han llamado la atención por traer esos dispositivos al colegio?": {
+				"orden": 10
+			},
+			"¿Utilizas aplicaciones de entretenimiento 'Apps' por ejemplo Spotify para música?": {
+				"orden": 12
+			}
+		},
+		"composed": [
+			{
+				"orden": 11,
+				"tipo": "has_many_with_details",
+				"titulo": "¿En qué redes sociales tienes perfil?",
+				"sub_pregunta": "¿Cuántos amigos tienes en esa red?",
+				"opciones": [
+					[
+						"Facebook",
+						"int"
+					],
+					[
+						"ASK",
+						"int"
+					],
+					[
+						"Twitter",
+						"int"
+					],
+					[
+						"Wathsapp",
+						"int"
+					],
+					[
+						"Snapchat",
+						"int"
+					],
+					[
+						"Skype",
+						"int"
+					],
+					[
+						"Instagram",
+						"int"
+					],
+					[
+						"Messenger",
+						"int"
+					],
+					[
+						"Twenty",
+						"int"
+					],
+					[
+						"Hi-5",
+						"int"
+					],
+					[
+						"LinkedIn",
+						"int"
+					],
+					[
+						"Kik",
+						"int"
+					],
+					[
+						"Sonico",
+						"int"
+					],
+					[
+						"Fotolog",
+						"int"
+					]
+				]
+			}
+		],
+		"simple": {
+			"Escribe el nombre de la 'App' (aplicación de entretenimiento) que más utilizas:": {
+				"orden": 13,
+				"tipo": "string"
+			}
+		}
+	}
+}

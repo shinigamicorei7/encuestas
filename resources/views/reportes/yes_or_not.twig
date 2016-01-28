@@ -1,0 +1,77 @@
+{# pregunta \Intisana\Encuesta\Pregunta\YesOrNot #}
+<form class="panel" method="post" id="form-{{ pregunta.serial }}">
+	<div class="panel-heading">
+		<table style="display: none;width: 100%;" class="editor">
+			<tr>
+				<td width="75%">
+					<div class="input-group" style="font-weight: 600">
+						<span class="input-group-addon">{{ pregunta.orden }})</span>
+						<input style="width: 90%" type="text" name="titulo" value="{{ pregunta.titulo }}" class="form-control">
+					</div>
+				</td>
+				<td class="text-right">
+					<div class="btn-group">
+						<a id="cancelar-{{ pregunta.serial }}" class="btn btn-default">Cancelar</a>
+						<input type="submit" class="btn btn-success" value="Guardar"/>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<h3 class="panel-title">
+			{{ pregunta.orden }}) {{ pregunta.titulo }}
+			<small style="color: black">- Sí o No</small>
+			{% if pregunta.isCheckout == false %}
+				<a id="editar-{{ pregunta.serial }}" style="color: #000;margin-top: 0px;" class="btn btn-default btn-xs pull-right">Editar pregunta</a>
+			{% endif %}
+		</h3>
+	</div>
+	<div class="panel-body">
+		<script type="text/javascript">
+			$(function ()
+			{
+				var options = {{ options|raw }};
+				$("#chartContainer-{{ pregunta.serial }}").CanvasJSChart(options);
+				$('#editar-{{ pregunta.serial }}').on('click', function ()
+				{
+					$('#form-{{ pregunta.serial }}').find('.editor').css('display', 'table');
+					$('#form-{{ pregunta.serial }}').find('.panel-title').css('display', 'none');
+				});
+				$('#cancelar-{{ pregunta.serial }}').on('click', function ()
+				{
+					$('#form-{{ pregunta.serial }}').find('.editor').css('display', 'none');
+					$('#form-{{ pregunta.serial }}').find('.panel-title').css('display', 'block');
+				});
+			});
+		</script>
+		<div class="row">
+			<div class="col-md-6">
+				<table class="table table-bordered table-condensed">
+					<thead>
+					<tr>
+						<th>Opción</th>
+						<th>Votos</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td>Sí</td>
+						<td>{{ pregunta.yes }}</td>
+					</tr>
+					<tr>
+						<td>No</td>
+						<td>{{ pregunta.getNot }}</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-md-6">
+				<div class="panel panel-default">
+					<div class="panel-heading text-center"><span class="panel-title ">Gráfico</span></div>
+					<div class="panel-body">
+						<div id="chartContainer-{{ pregunta.serial }}" style="height: 300px; width: 100%;"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>

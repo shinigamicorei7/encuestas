@@ -1,0 +1,20 @@
+{# pregunta \Intisana\Encuesta\Pregunta\YesOrNot #}
+<div class="panel">
+	<div class="panel-heading">
+		<h3 class="panel-title">{{ pregunta.orden }}) {{ pregunta.titulo }}</h3>
+	</div>
+	<div class="panel-body">
+		<div class="row">
+			<div class="radio">
+				<label>
+					<input required type="radio" name="preguntas[{{ pregunta.serial }}]" id="" value="s">&nbsp;&nbsp;&nbsp;Sí
+				</label>
+			</div>
+			<div class="radio">
+				<label>
+					<input required type="radio" name="preguntas[{{ pregunta.serial }}]" id="" value="n">&nbsp;&nbsp;&nbsp;No
+				</label>
+			</div>
+		</div>
+	</div>
+</div>

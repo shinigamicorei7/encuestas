@@ -1,0 +1,88 @@
+{# encuesta \Intisana\Encuesta\Encuesta #}
+{% extends 'layouts/main.twig' %}
+
+{% block content %}
+	<style>
+		.row {
+			overflow: hidden;
+		}
+
+		[class*="col-"] {
+			margin-bottom: -99999px;
+			padding-bottom: 99999px;
+		}
+
+		.panel .panel-heading .panel-title {
+			font-weight: 600;
+			color: #1B7D5A;
+		}
+
+		[class*="col-"]:first-child {
+			border-left: none !important;
+		}
+
+		[class*="col-"]:last-child {
+			border-right: none !important;
+		}
+	</style>
+	<h1 class="page-header text-center" style="border-bottom: none">{{ encuesta.titulo }}</h1>
+	{% if mensaje != false %}
+		<div class="alert alert-success alert-dismissible" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<strong>Listo!</strong>
+			{% for ul in mensaje %}
+				{{ ul | raw }}
+			{% endfor %}
+		</div>
+	{% endif %}
+	<ol class="breadcrumb">
+		<li><b>{{ encuesta.numeroPersonas }}</b> | Personas llenaron la encuesta</li>
+		{% if isCheckout is not defined %}
+			<li><a href="exportar.php"><i class="glyphicon glyphicon-download-alt"></i>&nbsp;&nbsp;<b>Exportar información</b></a></li>
+			<li><a href="javascript:void(0)" id="reiniciar"><i class="glyphicon glyphicon-repeat"></i>&nbsp;&nbsp;<b>Reiniciar estadísticas</b></a></li>
+		{% endif %}
+	</ol>
+	{% for pregunta in encuesta.preguntas %}
+		<div class="row">
+			<div class="col-md-12" style="border: 1px #eee solid;border-bottom: none">
+				{{ pregunta.renderReporte|raw }}
+			</div>
+		</div>
+	{% endfor %}
+	<!-- Modal -->
+	<div class="modal fade" id="reiniciar_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">Esta Seguro?</h4>
+				</div>
+				<div class="modal-body">
+					<p>Si reinicia las estad&iacute;sticas no podr&aacute; recuperar la informaci&oacute;n actual</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+					<button type="button" class="btn btn-danger" id="reiniciar_ok">Reiniciar estad&iacute;sticas</button>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+{% block js %}
+	<script src="{{ assets('js/chars/jquery.canvasjs.min.js') }}"></script>
+	<script>
+		$(function ()
+		{
+			$('#reiniciar').on('click', function (e)
+			{
+				e.preventDefault();
+				$('#reiniciar_modal').modal('show');
+			});
+
+			$('#reiniciar_ok').on('click', function ()
+			{
+				window.location = 'reiniciar.php';
+			});
+		});
+	</script>
+{% endblock %}

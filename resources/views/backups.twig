@@ -1,0 +1,72 @@
+{% extends 'layouts/main.twig' %}
+
+{% block content %}
+	<h1 class="page-header">Restaurar una copia de seguridad.</h1>
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table table-condensed table-bordered text-center">
+				{% for nombre,datos in respaldos %}
+					<tr>
+						<td width="50%" rowspan="{{ datos | length + 1 }}"><b>{{ nombre }}</b></td>
+						<td><b>Fechas respaldadas</b></td>
+						<td colspan="3"></td>
+					</tr>
+					{% for dato in datos %}
+						<tr>
+							<td>{{ dato.fecha }}</td>
+							<td>
+								<form method="post" action="checkout.php" target="_blank">
+									<input type="hidden" name="file" value="{{ dato.archivo }}">
+									<input class="btn btn-success" type="submit" value="Echar un vistazo">
+								</form>
+							</td>
+							<td>
+								<form method="post" class="restore">
+									<input type="hidden" name="caso" value="restore">
+									<input type="hidden" name="file" value="{{ dato.archivo }}">
+									<input class="btn btn-warning restore" type="submit" value="Restaurar">
+								</form>
+							</td>
+							<td>
+								<form method="post" class="delete">
+									<input type="hidden" name="caso" value="delete">
+									<input type="hidden" name="file" value="{{ dato.archivo }}">
+									<input class="btn btn-danger" type="submit" value="Eliminar">
+								</form>
+							</td>
+						</tr>
+					{% endfor %}
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+	<!-- Modal -->
+	<div class="modal fade" id="reiniciar_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">¿Esta Seguro?</h4>
+				</div>
+				<div class="modal-body">
+					<p>Si restaura este respaldo perderá toda la información actual.</p>
+					<p class="text-info">Se recomienda realizar un respaldo antes de restaurar. <small>(OPCIONAL)</small></p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+					<button type="button" class="btn btn-warning" id="reiniciar_ok">Restaurar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(function ()
+		{
+			$('.restore').submit(function ()
+			{
+				$('#reiniciar_modal').modal('show');
+				return false;
+			});
+		});
+	</script>
+{% endblock %}

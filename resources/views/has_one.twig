@@ -1,0 +1,15 @@
+{# pregunta \Intisana\Encuesta\Pregunta\HasOne #}
+<div class="panel">
+	<div class="panel-heading">
+		<h3 class="panel-title">{{ pregunta.orden }}) {{ pregunta.titulo }} <small style="color: black">(Elige una sola opción)</small></h3>
+	</div>
+	<div class="panel-body">
+		{% for opcion in pregunta.datos %}
+			<div class="radio">
+				<label>
+					<input type="radio" name="preguntas[{{ pregunta.serial }}]" value="{{ opcion[0] }}"  required>&nbsp;&nbsp;&nbsp;{{ opcion[0] }}
+				</label>
+			</div>
+		{% endfor %}
+	</div>
+</div>
