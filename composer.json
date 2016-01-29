@@ -1,7 +1,7 @@
 {
 	"autoload": {
 		"psr-4": {
-			"Intisana\\": "src/"
+			"Intisana\\": "app/"
 		},
 		"files": [
 			"resources/helpers.php"
@@ -9,6 +9,7 @@
 	},
 	"require": {
 		"twig/twig": "~1.0",
-		"phpoffice/phpexcel": "^1.8"
+		"phpoffice/phpexcel": "^1.8",
+		"silex/silex": "~1.3"
 	}
 }
